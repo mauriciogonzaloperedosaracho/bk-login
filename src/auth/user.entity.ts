@@ -7,7 +7,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { Task } from '../tasks/task.entity';
+import { Lesion } from 'src/SP/entities/lesion.entity';
 
 @Entity()
 @Unique(['email'])
@@ -16,8 +16,23 @@ export class User extends BaseEntity {
   id: number;
 
   @Column()
-  name: string;
+  nombre: string;
 
+  @Column()
+  apellidopaterno: string;
+
+  @Column()
+  apellidomaterno: string;
+
+  @Column()
+  carnet: string;
+
+  @Column()
+  ciudad: string;
+
+  @Column({ type: 'date'})
+  fechanacimiento: string;
+  
   @Column()
   email: string;
 
@@ -27,8 +42,8 @@ export class User extends BaseEntity {
   @Column()
   salt: string;
 
-  @OneToMany(type => Task, task => task.user, { eager: true })
-  tasks: Task[];
+  @OneToMany(() => Lesion, (Lesion) => Lesion.User)
+  Lesion: Lesion[];
 
   async validatePassword(password: string): Promise<boolean> {
     const hash = await bcrypt.hash(password, this.salt);

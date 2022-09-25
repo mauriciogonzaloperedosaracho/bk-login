@@ -2,7 +2,23 @@ import { IsNotEmpty, IsEmail, MinLength, MaxLength } from 'class-validator';
 
 export class SignUpDto {
   @IsNotEmpty()
-  name: string;
+  nombre: string;
+
+  @IsNotEmpty()
+  apellidopaterno: string;
+
+  @IsNotEmpty()
+  apellidomaterno: string;
+
+  @IsNotEmpty()
+  carnet: string;
+
+  @IsNotEmpty()
+  ciudad: string;
+
+  @IsNotEmpty()
+  fechanacimiento: string;
+
 
   @IsNotEmpty()
   @IsEmail()

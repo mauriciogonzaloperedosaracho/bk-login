@@ -1,5 +1,10 @@
 export interface JwtPayload {
     id: number;
-    name: string;
+    nombre: string;
+    apellidopaterno: string;
+    apellidomaterno: string;
+    carnet: string;
+    ciudad: string;
+    fechanacimiento: string;
     email: string;
 }
