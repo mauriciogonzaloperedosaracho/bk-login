@@ -1,7 +1,7 @@
 import { ClassSerializerInterceptor, Controller, Req, UseGuards, UseInterceptors, Put, Body, Inject, Post, Param, Get } from '@nestjs/common';
 import { JugadorService } from '../services/jugador.service';
 
-@Controller('api/jugador')
+@Controller('jugador')
 export class JugadorController {
   constructor(private JugadorService: JugadorService) {}
 
