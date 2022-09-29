@@ -5,7 +5,7 @@ import { Causalesion } from '../entities/causalesion.entity';
 import { CausalesionlesionService } from '../services/causalesion.service';
 
 @Controller('causalesion')
-@UseGuards(AuthGuard('jwt'))
+//@UseGuards(AuthGuard('jwt'))
 export class CausalesionController {
   @Inject(CausalesionlesionService)
   private readonly service: CausalesionlesionService;

@@ -5,13 +5,13 @@ export class Medicamentos {
   @PrimaryGeneratedColumn()
   public id!: number;
 
-  @Column({ type: 'varchar', nullable: true })
-  public nombre: string | null;
+  @Column()
+  public nombre: string;
 
-  @Column({ type: 'varchar', nullable: true })
-  public descripcion: string | null;
+  @Column()
+  public descripcion: string;
 
-  @Column({ type: 'int', nullable: true })
-  public estado: number | null;
+  @Column()
+  public estado: number;
 
 }

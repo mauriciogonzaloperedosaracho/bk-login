@@ -6,11 +6,11 @@ export class Posicionjugador {
   @PrimaryGeneratedColumn()
   public idposicion!: number;
 
-  @Column({ type: 'varchar', nullable: true })
-  public descripcion: string | null;
+  @Column()
+  public descripcion: string;
 
-  @Column({ type: 'int', nullable: true })
-  public estado: number | null;
+  @Column()
+  public estado: number;
 
   @OneToMany(() => Jugador, (jugador) => jugador.Posicionjugador)
   jugadores: Jugador[];

@@ -2,8 +2,6 @@ import { IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class MedicamentoDto {
 
-  @IsString()
-  @IsOptional()
   public readonly nombre?: string;
 
   @IsString()

@@ -5,10 +5,10 @@ export class Equipojugador {
   @PrimaryGeneratedColumn()
   public idequipo: number;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column()
   public descripcion: string;
 
-  @Column({ type: 'int', nullable: true })
+  @Column()
   public estado: number;
 
   @OneToMany(() => Jugador, (jugador) => jugador.Equipojugador)

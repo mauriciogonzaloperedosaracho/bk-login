@@ -6,11 +6,11 @@ export class Causalesion {
   @PrimaryGeneratedColumn()
   public id!: number;
 
-  @Column({ type: 'varchar', nullable: true })
-  public descripcion: string | null;
+  @Column()
+  public descripcion: string;
 
-  @Column({ type: 'int', nullable: true })
-  public estado: number | null;
+  @Column()
+  public estado: number;
 
   @OneToMany(() => Reportarlesion, (Reportarlesion) => Reportarlesion.Causalesion)
   Reportarlesion: Reportarlesion[];

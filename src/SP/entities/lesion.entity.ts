@@ -11,7 +11,7 @@ export class Lesion {
   @PrimaryGeneratedColumn()
   public id!: number;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column()
   public descripcion: string;
 
   @CreateDateColumn({

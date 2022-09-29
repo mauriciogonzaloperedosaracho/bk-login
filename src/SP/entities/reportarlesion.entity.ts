@@ -11,10 +11,10 @@ export class Reportarlesion {
   @PrimaryGeneratedColumn()
   public id!: number;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column()
   public descripcion: string;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column()
   public atencion: string;
 
   @ManyToOne(() => Jugador, (Jugador) => Jugador.Reportarlesion)

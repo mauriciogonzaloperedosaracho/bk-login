@@ -6,14 +6,14 @@ export class Tratamientolesion {
   @PrimaryGeneratedColumn()
   public id!: number;
 
-  @Column({ type: 'varchar', nullable: true })
-  public tratamientolesion: string | null;
+  @Column()
+  public tratamientolesion: string;
 
-  @Column({ type: 'varchar', nullable: true })
-  public descripcion: string | null;
+  @Column()
+  public descripcion: string;
 
-  @Column({ type: 'int', nullable: true })
-  public estado: number | null;
+  @Column()
+  public estado: number;
 
   @OneToMany(() => Lesion, (Lesion) => Lesion.Tratamientolesion)
   Lesion: Lesion[];

@@ -8,32 +8,32 @@ export class Jugador {
   @PrimaryGeneratedColumn()
   public id!: number;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column()
   public nombre: string;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column()
   public apellidopaterno: string;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column()
   public apellidomaterno: string;
 
-  @Column({ type: 'int', nullable: true })
+  @Column()
   public carnet: number;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column()
   public ciudad: string;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column()
   public direccion: string;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column()
   public telefono: string;
 
-  @Column({ type: 'date', nullable: true })
+  @Column()
   public fechanacimiento: string;
 
-  @Column({ type: 'int', nullable: true })
-  public estado: number | null;
+  @Column()
+  public estado: number;
 
   @ManyToOne(() => Equipojugador, (Equipojugador) => Equipojugador.jugadores)
   @JoinColumn({ name: 'equipojugador_id' })
