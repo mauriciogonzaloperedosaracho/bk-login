@@ -9,7 +9,9 @@ import {
   UseInterceptors,
   Get,
   Inject,
-  Param
+  Param,
+  Put,
+  Delete
 } from '@nestjs/common';
 
 import { AuthGuard } from '@nestjs/passport';
@@ -54,4 +56,17 @@ export class AuthController {
   findOne(@Param('id') id: number) {
     return this.service.findOne(id);
   }
+  
+  //Eliminación lógica de Momento Lesión
+  @Put(':id')
+  @UseInterceptors(ClassSerializerInterceptor)
+  update(@Param('id') id: number, @Body() body: any) {
+    return this.service.update(id, body);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: number) {
+    return this.service.remove(id);
+  }
+
 }

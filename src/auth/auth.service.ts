@@ -28,7 +28,15 @@ export class AuthService {
   async signUp(signUpDto: SignUpDto): Promise<void> {
     return this.userRepository.signUp(signUpDto);
   }
-
+  async update(id: number, body: any) {
+    const task = await this.userRepo.findOne(id);
+    this.userRepo.merge(task, body);
+    return this.userRepo.save(task);
+  }
+  async remove(id: number) {
+    await this.userRepo.delete(id);
+    return true;
+  }
   async signIn(signInDto: SignInDto): Promise<{ accessToken: string }> {
     const user = await this.userRepository.validateUserPassword(signInDto);
 
