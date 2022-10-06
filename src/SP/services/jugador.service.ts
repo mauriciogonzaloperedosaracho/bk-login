@@ -19,7 +19,19 @@ export class JugadorService {
         relations: ['Equipojugador', 'Posicionjugador'], where: { estado: 1 }
     });
     }
-
+    
+    findOne(id: number) {
+      return this.jugadorRepo.findOne(id, { relations: ['Equipojugador', 'Posicionjugador'] });
+    }
+    async update(id: number, body: any) {
+      const task = await this.jugadorRepo.findOne(id);
+      this.jugadorRepo.merge(task, body);
+      return this.jugadorRepo.save(task);
+    }
+    async remove(id: number) {
+      await this.jugadorRepo.delete(id);
+      return true;
+    }
   async create(body: any) {
     
     const equipojugador = await this.tasksRepo.findOne(body.equipojugadorId);
