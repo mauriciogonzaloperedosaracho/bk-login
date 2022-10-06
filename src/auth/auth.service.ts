@@ -5,17 +5,26 @@ import { UserRepository } from './user.repository';
 import { SignUpDto } from './dto/signup.dto';
 import { SignInDto } from './dto/signin.dto';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
-
+import { Repository } from 'typeorm';
+import { User } from './user.entity';
 @Injectable()
 export class AuthService {
 
   private logger = new Logger('AuthService');
   constructor(
     @InjectRepository(UserRepository)
+    @InjectRepository(User) private userRepo: Repository<User>,
     private userRepository: UserRepository,
     private jwtService: JwtService
   ) { }
+ 
+  findAll() {
+    return this.userRepo.find();
+  }
 
+  findOne(id: number) {
+    return this.userRepo.findOne(id);
+  }
   async signUp(signUpDto: SignUpDto): Promise<void> {
     return this.userRepository.signUp(signUpDto);
   }

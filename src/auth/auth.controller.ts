@@ -4,7 +4,12 @@ import {
   Body,
   UseGuards,
   Req,
-  Logger
+  Logger,
+  ClassSerializerInterceptor,
+  UseInterceptors,
+  Get,
+  Inject,
+  Param
 } from '@nestjs/common';
 
 import { AuthGuard } from '@nestjs/passport';
@@ -16,7 +21,8 @@ import { SignInDto } from './dto/signin.dto';
 export class AuthController {
   private logger = new Logger('AuthController');
   constructor(private authService: AuthService) { }
-
+  @Inject(AuthService)
+  private readonly service: AuthService;
   @Post('/signup')
   signUp(@Body() signUpDto: SignUpDto): Promise<void> {
     this.logger.verbose('Registering!'); // logging status
@@ -33,5 +39,19 @@ export class AuthController {
   @UseGuards(AuthGuard())
   test(@Req() req) {
     console.log(req.user);
+  }
+
+  @Get()
+
+  @UseInterceptors(ClassSerializerInterceptor)
+  findAll() {
+    return this.service.findAll();
+  }
+
+  //Listar un solo Localización Lesión
+  @Get(':id')
+  @UseInterceptors(ClassSerializerInterceptor)
+  findOne(@Param('id') id: number) {
+    return this.service.findOne(id);
   }
 }
