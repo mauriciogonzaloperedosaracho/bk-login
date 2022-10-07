@@ -23,8 +23,8 @@ export class LesionService {
 
   
   findAll() {
-    return this.reporRepo.find({
-        relations: ['Lesion', 'Tratamientolesion', 'User', 'Gravedadlesion', 'Reportarlesion', 'Posiblelesion']
+    return this.lesionRepo.find({
+        relations: ['Tratamientolesion', 'User', 'Gravedadlesion', 'Reportarlesion', 'Posiblelesion']
     });
     }
 
