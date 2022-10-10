@@ -7,7 +7,6 @@ import {
   OneToMany,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { Lesion } from 'src/SP/entities/lesion.entity';
 
 @Entity()
 @Unique(['email'])
@@ -41,9 +40,6 @@ export class User extends BaseEntity {
 
   @Column()
   salt: string;
-
-  @OneToMany(() => Lesion, (Lesion) => Lesion.User)
-  Lesion: Lesion[];
 
   async validatePassword(password: string): Promise<boolean> {
     const hash = await bcrypt.hash(password, this.salt);
