@@ -9,7 +9,7 @@ import { Repository } from 'typeorm';
 import { User } from './user.entity';
 @Injectable()
 export class AuthService {
-
+  // alguna modificacion
   private logger = new Logger('AuthService');
   constructor(
     @InjectRepository(UserRepository)
