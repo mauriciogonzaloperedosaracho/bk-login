@@ -6,6 +6,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const logger = new Logger('bootstrap');
   const app = await NestFactory.create(AppModule);
+  app.setGlobalPrefix('node-app');
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();
 
